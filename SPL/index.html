@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPL Token Studio - Create Solana Tokens</title>
+    <meta name="description" content="Create, deploy and manage SPL tokens on Solana. No coding required - connect your wallet and launch your token in seconds." />
+    <meta name="author" content="SPL Token Studio" />
+    <meta name="keywords" content="solana, spl token, token creation, web3, crypto, blockchain, defi" />
+
+    <meta property="og:title" content="SPL Token Studio - Create Solana Tokens" />
+    <meta property="og:description" content="Create, deploy and manage SPL tokens on Solana. No coding required - connect your wallet and launch your token in seconds." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script>
+      // Ensure global objects are available before any modules load
+      if (typeof global === 'undefined') {
+        var global = globalThis;
+      }
+    </script>
+    <script type="module">
+      // Use IIFE with async to avoid top-level await
+      (async () => {
+        try {
+          const bufferModule = await import('buffer');
+          const Buffer = bufferModule.Buffer;
+          if (typeof window !== 'undefined' && !window.Buffer) {
+            window.Buffer = Buffer;
+          }
+          if (!globalThis.Buffer) {
+            globalThis.Buffer = Buffer;
+          }
+        } catch (error) {
+          console.warn('Failed to load Buffer polyfill:', error);
+        }
+      })();
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

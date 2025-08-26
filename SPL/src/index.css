@@ -1,0 +1,85 @@
+@tailwind base;
+    min-height: 100vh;
+  }
+
+  /* Wallet adapter styles */
+  .wallet-adapter-button {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground font-medium px-4 py-2 rounded-lg transition-all duration-300;
+    box-shadow: var(--shadow-primary-glow);
+  }
+
+  .wallet-adapter-dropdown {
+    @apply bg-card border border-border rounded-lg overflow-hidden;
+    box-shadow: var(--shadow-card);
+  }
+
+  .wallet-adapter-dropdown-list-item {
+    @apply hover:bg-muted transition-colors duration-200;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/20;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/50;
+  }
+
+  /* Glow animation */
+  @keyframes glow {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(259 94% 51% / 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(259 94% 51% / 0.6);
+    }
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  /* Success pulse */
+  @keyframes success-pulse {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(142 76% 36% / 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(142 76% 36% / 0.6);
+    }
+  }
+
+  .animate-success-pulse {
+    animation: success-pulse 2s ease-in-out infinite;
+  }
+
+  /* Shimmer loading effect */
+  @keyframes shimmer {
+    0% {
+      background-position: -200px 0;
+    }
+    100% {
+      background-position: calc(200px + 100%) 0;
+    }
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(220 27% 6%) 0%,
+      hsl(259 94% 51% / 0.1) 50%,
+      hsl(220 27% 6%) 100%
+    );
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite;
+  }
+}
